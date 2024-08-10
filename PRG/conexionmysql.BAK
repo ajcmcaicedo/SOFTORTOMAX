@@ -1,0 +1,25 @@
+PUBLIC cnram as String
+
+
+**-Define the DNS connection?
+_dsn="ajcmconexion;"
+_server="107.180.21.58;"
+_UID="usajcmorto;"
+_PWD="a123456*;"
+_Database="dbajcmorto;"
+_Port="3306"
+
+**?
+
+dsn_="DSN="+_dsn+"SERVER="+_server+"UID="+_uid+"PWD="+_pwd+"DATABASE="+_Database+"PORT="+_Port
+
+*****?
+MESSAGEBOX(dsn_)
+cnram=SQLSTRINGCONNECT("&dsn_") &&Se intenta la conexión?
+
+IF cnram<1
+    MESSAGEBOX('NO HAY CONEXIÓN CON LA DB '+_Database,16,'Conexión Fallida!')
+    RELEASE ALL
+    CLOSE ALL
+    quit
+ENDIF
